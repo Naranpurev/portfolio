@@ -27,11 +27,14 @@ img {
 .hide {
     top: -100px !important;
 }
-/* .shadow {
-    -webkit-box-shadow: 0px 7px 10px -1px rgba(2,12,27,.7); 
-    box-shadow: 0px 7px 10px -1px rgba(2,12,27,.7);
-    backdrop-filter: blur(10px);
-} */
+.logo {
+    background: url(../../../assets/logo.png);
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 a {
     font-size: 13px;
     color: var(--heading-color);
