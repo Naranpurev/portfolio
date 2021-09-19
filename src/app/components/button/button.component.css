@@ -1,0 +1,9 @@
+.classic-btn {
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: var(--secondary-color);
+    margin: 0,0,0,15px;
+    display: inline-block;
+    font-family: var(--secondary-font);
+}

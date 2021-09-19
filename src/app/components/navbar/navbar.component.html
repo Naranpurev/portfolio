@@ -1,0 +1,30 @@
+<nav [class.hide]="!hide"  >
+    <div class="wrapper  d-flex justify-content-between align-items-center my-3">
+     <a  href="#">   <img src="../../../assets/logo.png" class="img-fluid"  alt="logo"></a>
+            <ul [class.menu]="!toggleMenu" (click)="toggleMenu = !toggleMenu" class="navbar-nav d-flex flex-row align-items-center">
+                <li class="nav-item">
+                    <span class="a-number">01.</span>
+                    <a class="nav-link"href="#about">  About</a>
+                </li>
+                <li class="nav-item">
+                    <span class="a-number">02.</span>
+                    <a class="nav-link"href="#experience">  Experience</a>
+                </li> 
+                <li class="nav-item">
+                    <span class="a-number">03.</span>
+                    <a class="nav-link"href="#work"> Work</a>
+                </li> 
+                <li class="nav-item">
+                    <span class="a-number">04.</span>
+                    <a class="nav-link" href="#contact">  Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../../assets/Naranpurev resume.docx" download=""> <app-button [title]="title"></app-button></a>
+                </li>
+            </ul>
+            <div class="hamburger" [ngClass]="toggleMenu ? 'fa fa-bars' : 'fa fa-times'" (click)="toggleMenu = !toggleMenu" >
+            </div>
+        </div>  
+      </nav>
+
+      

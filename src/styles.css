@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-color: #8892B0;
+    --secondary-color: #63fdd8;
+    --heading-color: #ccd6f6;
+    --background-color: #0A192F;
+    --primary-font: 'Calibre';
+    --secondary-font: 'SFMono';
+}
+@font-face {
+    font-family: 'Calibre';
+    src: url(assets/fonts/primary/CalibreRegular.otf);
+}
+@font-face {
+    font-family: 'SFMono';
+    src: url(assets/fonts/secondary/SFMonoRegular.otf);
+}
+body::-webkit-scrollbar {
+    width: .4rem;
+    background: var(--background-color);
+    border: none;
+  }
+  body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    /* border-radius: 1rem; */
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+  }
+
+body {
+    background-color: var(--background-color);
+}
+
+.numbered-heading {
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+  margin: 10px 0 40px !important;
+  width: 100% !important;
+  font-size: clamp(26px, 5vw, 32px) !important;
+  font-family: var(--primary-font) !important;
+  color: var(--heading-color) !important;
+  line-height: 1.1 !important;
+  white-space: nowrap !important;
+  font-weight: 600 !important;
+}
+.numbered-heading::before {
+  content: "01.";
+  position: relative;
+  margin-right: 10px;
+  color: var(--secondary-color);
+  font-family: var(--secondary-font);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+.numbered-heading::after {
+  content: '';
+  display: block;
+  position: relative;
+  margin-left: 1rem;
+  width: 300px;
+  height: 1px;
+  background-color: #233554;
+}

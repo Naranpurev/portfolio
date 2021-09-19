@@ -1,0 +1,116 @@
+.wrapper {
+    width: 93%;
+    margin: auto;
+    font-family: var(--secondary-font);
+}
+nav {
+    position: relative;
+    top: 0;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: all .1s ease-in-out;
+}
+.nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center !important;
+}
+
+img {
+    width: 2.5rem;
+    cursor: pointer;   
+}
+
+.hide {
+    top: -100px !important;
+}
+/* .shadow {
+    -webkit-box-shadow: 0px 7px 10px -1px rgba(2,12,27,.7); 
+    box-shadow: 0px 7px 10px -1px rgba(2,12,27,.7);
+    backdrop-filter: blur(10px);
+} */
+a {
+    font-size: 13px;
+    color: var(--heading-color);
+    padding: 10px !important;
+}
+.a-number {
+    color: var(--secondary-color);
+    padding-left: .5rem !important;
+}
+li {
+    transition: all .4s ease-in;
+}
+li:focus {
+    border: 2px dashed var(--secondary-color) !important;
+}
+
+li:hover a {
+    color: var(--secondary-color);
+}
+li:last-child:hover {
+    border: none !important;
+}
+
+.hamburger {
+    display: none;
+}
+
+
+@media (max-width:768px) {
+    ul {
+        transform: translateY(-1000px);
+    }
+
+   .wrapper {
+       height: 4rem;
+   }
+   .hamburger {
+       display: flex;
+       position: absolute;
+       top: 1rem;
+       right: .5rem;     
+       height: min-content;
+       font-size: 2rem;
+       padding: 0.75rem 1rem;
+       color: var(--secondary-color);
+       z-index: 11;
+    }
+    .hamburger:focus {
+        border: 2px dashed var(--secondary-color);
+   }
+   .menu {
+    position: fixed;
+    top: 0px;
+    right: 0%;
+    bottom: 0px;
+    padding: 50px 10px;
+    width: min(75vw, 350px);
+    height: 100vh;
+    z-index: 10;
+    background-color: #112240;
+    transition: all .25s ease-in-out;
+    box-shadow: -10px 0px 30px -15px rgba(2,12,27,.7);
+    flex-direction: column !important;
+    transform: translateY(0);
+    justify-content: center;
+   }
+   .menu li {
+       padding: .5rem 0;
+   }
+   .menu a {
+    font-size: 1rem;
+    padding: 3px 20px 20px;
+    text-align: center;
+   }
+   .menu li:hover {
+    border: none !important;
+    }   
+    .nav-item {
+    flex-direction: column;
+    }
+
+}

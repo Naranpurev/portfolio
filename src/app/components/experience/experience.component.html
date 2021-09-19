@@ -1,0 +1,43 @@
+<section id="experience" class="experience">
+    <h2 class="numbered-heading">Where I've Worked</h2>
+    <div class="experience-content">
+        <div class="companies">
+            <a  href="#sant"  (click)="showSantender()">Santender Bank</a>
+            <a  href="#unit"  (click)="showUnitel()">Unitel Group</a>
+        </div>
+        <div class="exp_companies">
+            <div data-aos="flip-left" class="santender" *ngIf="santender">
+                <h3><span>Front-end Developer</span>
+                <span class="comps">&nbsp;@&nbsp;<a target="_blank" href="https://www.santanderbank.com/">Santender Bank</a></span></h3>
+                <p>Nov 2019 - Present</p>
+                <div>
+                    <ul>
+                        <li>Test pages for cross-browser compatibility for Safari, Chrome, Firefox and IE by cross browser tools and requirement</li>
+                        <li>
+                            Work with a variety of different languages, platforms, frameworks, and content management systems such as JavaScript, TypeScript, Angular. 
+                        </li>
+                        <li>
+                            Communicate with multi-disciplinary teams of engineers, designers, producers, and clients on a daily basis
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-aos="flip-right" class="unitel" *ngIf="unitel">
+                <h3><span>Front-end Developer</span>
+                <span class="comps">&nbsp;@&nbsp;<a target="_blank" href="https://www.unitel.mn/">Unitel Group</a></span></h3>
+                <p>Mar 2015 - May 2018</p>
+                <div>
+                    <ul>
+                        <li>Develop custom components and reusable code that can be implemented in the future</li>
+                        <li>
+                            Handle   all   aspects   of   the   web   application   including   maintaining, testing, debugging, deploying, and printing	 
+                        </li>
+                        <li>
+                            Support designers and app developers while resolving website performance concerns to 		 ensure effective web development. 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
