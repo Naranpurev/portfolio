@@ -1,0 +1,85 @@
+.side {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 10rem;
+    padding: 0 150px;
+    height: auto;
+    -webkit-box-pack:center;
+    -webkit-box-align: center;
+}
+.note {
+    font-family: var(--primary-font);
+    font-size: 32px;
+    color: var(--heading-color);
+    font-weight: 600;
+}
+.archive {
+    font-size: 14px;
+    color: var(--secondary-color);
+    font-family: var(--secondary-font);
+}
+.fa-folder-open {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+.fa-location-arrow {
+    color: var(--primary-color);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .3s ease-in;
+
+}
+.fa-location-arrow:hover {
+    color: var(--secondary-color);
+}
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-inner {
+    width: 275px;
+    height: auto;
+    background-color: #112240;
+    transition: all .2s ease-in;
+    margin: 5px;
+}
+.project-inner:hover {
+    transform: translateY(-.5rem);
+}
+.project-inner:hover h2 {
+    color: var(--secondary-color);
+}
+.project-inner h2 {
+    color: var(--heading-color);
+    font-family: var(--primary-font);
+    font-weight: 600;
+}
+.project-inner p {
+    font-family: var(--primary-font);
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+.madeWith {
+    color: var(--primary-color);
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+}
+.madeWith li {
+    padding-right: 1rem;
+    font-family: var(--secondary-font);
+    font-size: 11px;
+}
+.coming {
+    font-family: var(--secondary-font) !important;
+    font-size: 11px;
+    color: var(--secondary-color);
+}
+@media (max-width:768px) {
+    .side {
+        padding: 0 1rem;
+    }
+ 
+}

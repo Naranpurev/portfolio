@@ -12,6 +12,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ButtonComponent } from './components/button/button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
+import { SideProjectComponent } from './components/side-project/side-project.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ExperienceComponent,
     ProjectsComponent,
     ButtonComponent,
-    FooterComponent
+    FooterComponent,
+    SideProjectComponent
   ],
   imports: [
     BrowserModule,
