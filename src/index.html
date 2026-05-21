@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Naranpurev Munkhbayar — Senior Front-End Developer</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Senior Front-End Developer with 10 years of experience specializing in Angular, TypeScript, and RxJS. Currently available for new opportunities.">
+  <meta property="og:title" content="Naranpurev Munkhbayar — Senior Front-End Developer">
+  <meta property="og:description" content="10 years of experience building enterprise-grade Angular applications.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Prevent flash of unstyled content for dark mode -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        if (stored === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else if (!stored) {
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var hour = new Date().getHours();
+          var isNight = hour >= 18 || hour < 6;
+          if (prefersDark || isNight) document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

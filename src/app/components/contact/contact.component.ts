@@ -1,0 +1,185 @@
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ContactInfo } from '../../models/portfolio.model';
+
+@Component({
+  selector: 'app-contact',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <section id="contact">
+      <div class="container">
+        <div class="inner">
+          <span class="label">Contact</span>
+          <h2>Let's work together</h2>
+          <p class="sub">
+            I'm currently available for new opportunities — full-time roles, contract work, or consulting.
+            Reach out and I'll get back to you promptly.
+          </p>
+          <div class="links">
+
+            <a [href]="'mailto:' + contact().email" class="link-card">
+              <div class="link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/>
+                </svg>
+              </div>
+              <div class="link-text">
+                <p class="link-label">Email <span class="provider">Gmail</span></p>
+                <p class="link-value">{{ contact().email }}</p>
+              </div>
+            </a>
+
+            <a [href]="'mailto:' + contact().emailOutlook" class="link-card">
+              <div class="link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/>
+                </svg>
+              </div>
+              <div class="link-text">
+                <p class="link-label">Email <span class="provider">Outlook</span></p>
+                <p class="link-value">{{ contact().emailOutlook }}</p>
+              </div>
+            </a>
+
+            <a [href]="contact().linkedin" target="_blank" rel="noopener" class="link-card">
+              <div class="link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </div>
+              <div class="link-text">
+                <p class="link-label">LinkedIn</p>
+                <p class="link-value">linkedin.com/in/naranpurev</p>
+              </div>
+            </a>
+
+            <div class="link-card static">
+              <div class="link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7a2 2 0 011.72 2.02z"/>
+                </svg>
+              </div>
+              <div class="link-text">
+                <p class="link-label">Phone</p>
+                <p class="link-value">{{ contact().phone }}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  `,
+  styles: [`
+    section {
+      padding: var(--section-padding) 0;
+      border-top: 1px solid var(--clr-border);
+      background: var(--clr-surface);
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .inner { max-width: 640px; }
+
+    .label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clr-accent);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--clr-text);
+      margin-bottom: 12px;
+    }
+
+    .sub {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--clr-text-secondary);
+      margin-bottom: 36px;
+    }
+
+    .links { display: flex; flex-direction: column; gap: 10px; }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--clr-bg);
+      border: 1px solid var(--clr-border);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .link-card:not(.static):hover {
+      border-color: var(--clr-accent);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--clr-accent) 12%, transparent);
+    }
+
+    .link-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--clr-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-text-secondary);
+      flex-shrink: 0;
+    }
+
+    .link-text { flex: 1; min-width: 0; }
+
+    .link-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--clr-text-muted);
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .provider {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--clr-accent);
+      background: color-mix(in srgb, var(--clr-accent) 10%, transparent);
+      border-radius: 3px;
+      padding: 1px 6px;
+    }
+
+    .link-value {
+      font-size: 0.9375rem;
+      color: var(--clr-text);
+      font-weight: 400;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  `],
+})
+export class ContactComponent {
+  contact = input.required<ContactInfo>();
+}
