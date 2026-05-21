@@ -24,10 +24,8 @@ export class ThemeService {
     if (stored === 'dark') return true;
     if (stored === 'light') return false;
 
-    // System preference takes priority over time-of-day
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) return true;
 
-    // Fall back to time-of-day in user's local timezone
     const hour = new Date().getHours();
     return hour >= 18 || hour < 6;
   }

@@ -192,4 +192,68 @@ export const PORTFOLIO: PortfolioData = {
       period: 'Aug 2013 – Jun 2017',
     },
   ],
+  certifications: [
+    {
+      title: 'Member Verification — Mongolian IT Professionals US',
+      issuer: 'MITPU',
+      issuerType: 'mitpu' as const,
+      image: 'assets/MITPU Member verification letter for Naranpurev.png',
+      date: 'Mar 2024',
+    },
+    {
+      title: 'Foundations of Project Management',
+      issuer: 'Google / Coursera',
+      issuerType: 'google' as const,
+      image: 'assets/Project Management Certification.png',
+      date: 'Feb 2024',
+    },
+    {
+      title: 'Node.js API Masterclass with Express & MongoDB',
+      issuer: 'Udemy',
+      issuerType: 'udemy' as const,
+      image: 'assets/Node.js API Masterclass with Express & MongoDB Certification.png',
+    },
+    {
+      title: 'Angular Front To Back',
+      issuer: 'Udemy',
+      issuerType: 'udemy' as const,
+      image: 'assets/Angular Front To Back Certification.png',
+    },
+    {
+      title: 'The Modern Angular Bootcamp',
+      issuer: 'Udemy',
+      issuerType: 'udemy' as const,
+      image: 'assets/The Modern Angular Bootcamp Certification.png',
+    },
+    {
+      title: 'JavaScript Algorithms & Data Structures Masterclass',
+      issuer: 'Udemy',
+      issuerType: 'udemy' as const,
+      image: 'assets/JavaScript Algorithms and Data Structures Masterclass Certification.png',
+    },
+    {
+      title: '50 Projects: JavaScript & CSS',
+      issuer: 'Udemy',
+      issuerType: 'udemy' as const,
+      image: 'assets/50 Projects - JavaScript,CSS.png',
+    },
+    {
+      title: 'Modern HTML & CSS From The Beginning (incl. Sass)',
+      issuer: 'Udemy',
+      issuerType: 'udemy' as const,
+      image: 'assets/Modern HTML & CSS From The Beginning (Including Sass) Certification.png',
+    },
+    {
+      title: 'Bootstrap 4 From Scratch With 5 Projects',
+      issuer: 'Udemy',
+      issuerType: 'udemy' as const,
+      image: 'assets/Bootstrap 4 From Scratch With 5 Projects Certification.png',
+    },
+    {
+      title: 'UX Design Essentials — Adobe XD UI/UX Design',
+      issuer: 'Udemy',
+      issuerType: 'udemy' as const,
+      image: 'assets/User Experience Design Essentials - Adobe XD UI UX Design Certification.png',
+    },
+  ],
 };

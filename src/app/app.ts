@@ -6,6 +6,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { EducationComponent } from './components/education/education.component';
+import { CertificationsComponent } from './components/certifications/certifications.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 @Component({
@@ -19,6 +20,7 @@ import { ContactComponent } from './components/contact/contact.component';
     ExperienceComponent,
     SkillsComponent,
     EducationComponent,
+    CertificationsComponent,
     ContactComponent,
   ],
   template: `
@@ -57,9 +59,15 @@ import { ContactComponent } from './components/contact/contact.component';
       }
 
       @defer (on viewport) {
-        <app-contact [contact]="data.contact" />
+        <app-certifications [certs]="data.certifications" />
       } @placeholder {
         <div class="section-placeholder" style="padding: 80px 0; border-top: 1px solid #e9ecef; background: #f8f9fa;"></div>
+      }
+
+      @defer (on viewport) {
+        <app-contact [contact]="data.contact" />
+      } @placeholder {
+        <div class="section-placeholder" style="padding: 80px 0; border-top: 1px solid #e9ecef;"></div>
       }
     </main>
 

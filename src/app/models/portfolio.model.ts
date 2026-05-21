@@ -35,6 +35,14 @@ export interface Degree {
   period: string;
 }
 
+export interface Certificate {
+  title: string;
+  issuer: string;
+  issuerType: 'google' | 'udemy' | 'mitpu';
+  image: string;
+  date?: string;
+}
+
 export interface PortfolioData {
   name: string;
   title: string;
@@ -44,4 +52,5 @@ export interface PortfolioData {
   experience: Job[];
   skills: SkillGroup[];
   education: Degree[];
+  certifications: Certificate[];
 }

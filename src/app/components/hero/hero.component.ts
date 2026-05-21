@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+  signal,
+} from '@angular/core';
+
 import { ContactInfo } from '../../models/portfolio.model';
 
 @Component({
@@ -9,6 +16,7 @@ import { ContactInfo } from '../../models/portfolio.model';
     <section id="hero">
       <div class="container">
         <div class="content">
+
           <div class="text">
             <p class="availability">Available for new opportunities</p>
             <h1>{{ name() }}</h1>
@@ -29,19 +37,31 @@ import { ContactInfo } from '../../models/portfolio.model';
               </a>
             </div>
           </div>
+
           <div class="avatar-wrap">
-            <div class="avatar" role="img" [attr.aria-label]="name() + ' profile photo'">
-              NM
-              <!--
-                To use your photo, replace the "NM" text with an empty string
-                and add to .avatar CSS:
-                  background-image: url('/assets/profile.jpg');
-                  background-size: cover;
-                  background-position: center top;
-                  font-size: 0;
-              -->
+            <div
+              class="avatar-container"
+              (mousemove)="onMouseMove($event)"
+              (mouseleave)="onMouseLeave()"
+              aria-hidden="true"
+            >
+              <div class="avatar-blob">
+                @if (!imgError()) {
+                  <img
+                    src="assets/profile.png"
+                    alt="Naranpurev Munkhbayar"
+                    [style.transform]="imgTransform()"
+                    (error)="imgError.set(true)"
+                  />
+                }
+                @if (imgError()) {
+                  <span class="initials" [style.transform]="imgTransform()">NM</span>
+                }
+              </div>
             </div>
+            <p class="hover-hint">hover me</p>
           </div>
+
         </div>
         <div class="scroll-hint" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -69,7 +89,7 @@ import { ContactInfo } from '../../models/portfolio.model';
 
     .content {
       display: grid;
-      grid-template-columns: 1fr 220px;
+      grid-template-columns: 1fr 300px;
       gap: 64px;
       align-items: center;
     }
@@ -81,7 +101,7 @@ import { ContactInfo } from '../../models/portfolio.model';
       font-size: 0.8125rem;
       color: #16a34a;
       font-weight: 500;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .availability::before {
@@ -96,7 +116,7 @@ import { ContactInfo } from '../../models/portfolio.model';
 
     @keyframes pulse {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+      50% { opacity: 0.3; }
     }
 
     h1 {
@@ -109,31 +129,27 @@ import { ContactInfo } from '../../models/portfolio.model';
     }
 
     .title {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-size: clamp(0.9375rem, 2.2vw, 1.125rem);
       font-weight: 500;
       color: var(--clr-accent);
       margin-bottom: 6px;
     }
 
     .tagline {
-      font-size: 0.9375rem;
+      font-size: 0.9rem;
       color: var(--clr-text-secondary);
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .summary {
       font-size: 1rem;
-      line-height: 1.75;
+      line-height: 1.78;
       color: var(--clr-text-secondary);
       max-width: 560px;
       margin-bottom: 36px;
     }
 
-    .actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
     .btn-primary {
       display: inline-flex;
@@ -171,22 +187,79 @@ import { ContactInfo } from '../../models/portfolio.model';
 
     .avatar-wrap {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
 
-    .avatar {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: var(--clr-text);
-      color: var(--clr-bg);
+    .avatar-container {
+      width: 290px;
+      height: 290px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: crosshair;
+    }
+
+    .avatar-blob {
+      width: 270px;
+      height: 270px;
+      overflow: hidden;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      animation: blobMorph 9s ease-in-out infinite;
+      position: relative;
+      background: var(--clr-surface);
+    }
+
+    .avatar-container:hover .avatar-blob {
+      animation-play-state: paused;
+    }
+
+    @keyframes blobMorph {
+      0%   { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+      25%  { border-radius: 58% 42% 40% 60% / 57% 32% 68% 43%; }
+      50%  { border-radius: 70% 30% 46% 54% / 30% 68% 32% 70%; }
+      75%  { border-radius: 40% 60% 65% 35% / 65% 35% 65% 35%; }
+      100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+      display: block;
+      transition: transform 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .initials {
+      position: absolute;
+      inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 2.5rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
-      flex-shrink: 0;
+      color: var(--clr-bg);
+      background: var(--clr-text);
+      transition: transform 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .hover-hint {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clr-text-muted);
+      animation: hintFade 3s ease-in-out 2s forwards;
+      opacity: 0;
+    }
+
+    @keyframes hintFade {
+      0%   { opacity: 0; }
+      20%  { opacity: 1; }
+      80%  { opacity: 1; }
+      100% { opacity: 0; }
     }
 
     .scroll-hint {
@@ -200,20 +273,45 @@ import { ContactInfo } from '../../models/portfolio.model';
 
     @keyframes bounce {
       0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(6px); }
+      50%       { transform: translateX(-50%) translateY(6px); }
     }
 
     @media (max-width: 640px) {
       .content { grid-template-columns: 1fr; gap: 40px; }
       .avatar-wrap { order: -1; }
-      .avatar { width: 120px; height: 120px; font-size: 1.75rem; }
+      .avatar-container { width: 210px; height: 210px; }
+      .avatar-blob { width: 190px; height: 190px; }
     }
   `],
 })
 export class HeroComponent {
-  name = input.required<string>();
-  title = input.required<string>();
+  name    = input.required<string>();
+  title   = input.required<string>();
   tagline = input.required<string>();
   summary = input.required<string>();
   contact = input.required<ContactInfo>();
+
+  imgError = signal(false);
+
+  private readonly fleeX = signal(0);
+  private readonly fleeY = signal(0);
+
+  imgTransform = computed(() =>
+    `scale(1.14) translate(${this.fleeX()}px, ${this.fleeY()}px)`
+  );
+
+  onMouseMove(event: MouseEvent) {
+    const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    const dx = event.clientX - (rect.left + rect.width / 2);
+    const dy = event.clientY - (rect.top + rect.height / 2);
+    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+    const maxFlee = 18;
+    this.fleeX.set(-(dx / dist) * maxFlee);
+    this.fleeY.set(-(dy / dist) * maxFlee);
+  }
+
+  onMouseLeave() {
+    this.fleeX.set(0);
+    this.fleeY.set(0);
+  }
 }
